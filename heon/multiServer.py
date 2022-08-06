@@ -14,11 +14,15 @@ f = open("flow_sequence_server_side.txt", "w")
 f.write("")
 f.close()
 
+flow_sequence_line_count = 1
+
 
 """
 Respond to any UDP connection.
 """
 def client_handler(ss):
+    global flow_sequence_line_count
+    
     while True:
         (data, sender) = ss.recvfrom(MAX_CHUNK_SIZE)
         print("\n\n---------- CLIENT_HANDLER ----------")
@@ -33,8 +37,9 @@ def client_handler(ss):
         
         # Write flow information to file
         f = open("flow_sequence_server_side.txt", "a")
-        f.write(flow_obj.getFlowInfoStr() + "\n")
+        f.write(str(flow_sequence_line_count) + ", "  + flow_obj.getFlowInfoStr() + "\n")
         f.close()
+        flow_sequence_line_count = flow_sequence_line_count + 1
         
         if msg == "4":
             ss.close()

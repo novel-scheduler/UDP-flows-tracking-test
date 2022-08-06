@@ -11,6 +11,7 @@ COUNT_LIMIT = 10
 # Initialize array for storing Flow objects
 # whose data is later to be written to file
 flow_sequence = []
+flow_sequence_line_count = 1
 
 # Initialize 3 client UDP sockets
 cs_1 = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -72,7 +73,8 @@ if __name__ == "__main__":
     
     all_lines = ''
     for flow in flow_sequence:
-        all_lines = all_lines + flow.getFlowInfoStr() + "\n"
+        all_lines = all_lines + str(flow_sequence_line_count) + ", " + flow.getFlowInfoStr() + "\n"
+        flow_sequence_line_count = flow_sequence_line_count + 1
 
     f = open("flow_sequence_client_side.txt", "w")
     f.writelines(all_lines)
