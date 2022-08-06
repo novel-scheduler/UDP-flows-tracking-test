@@ -22,5 +22,5 @@ while i < iterations:
     
     i = i + 1
 
-print(client_server_flow_match_arr)
+# print(client_server_flow_match_arr)
 print(is_flow_order_perfectly_matching)
