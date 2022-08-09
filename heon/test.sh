@@ -32,9 +32,9 @@ reset_qdisc () {
 
 # set max link rate to 50 Mbps with htb qdisc; this will remain throughout all the tests
 setup () {
-	sudo tc qdisc add dev $IF_r1_bottleneck root handle 1: htb default 1
+	sudo tc qdisc add dev $IF root handle 1: htb default 1
 
-	sudo tc class add dev $IF_r1_bottleneck parent 1: classid 1:1 htb rate 50Mbit
+	sudo tc class add dev $IF parent 1: classid 1:1 htb rate 50Mbit
 }
 
 # pause to allow user to run patient/surgeon scripts
@@ -57,31 +57,31 @@ setup
 
 
 # set up a netem qdisc with delay to ensure setup works properly
-sudo tc qdisc add dev $IF_r1_bottleneck parent 1:1 handle 10: netem delay 200ms
+sudo tc qdisc add dev $IF parent 1:1 handle 10: netem delay 200ms
 run "200ms delay test"
 
 
 # set up a pfifo qdisc with 30p buffer
 reset_qdisc
-sudo tc qdisc add dev $IF_r1_bottleneck parent 1:1 handle 10: pfifo limit 30
+sudo tc qdisc add dev $IF parent 1:1 handle 10: pfifo limit 30
 run "pfifo w/ 30p buffer"
 
 
 # set up a fq qdisc
 reset_qdisc
-sudo tc qdisc add dev $IF_r1_bottleneck parent 1:1 handle 10: fq
+sudo tc qdisc add dev $IF parent 1:1 handle 10: fq
 run "fair queue"
 
 
 # set up an sfq qdisc
 reset_qdisc
-sudo tc qdisc add dev $IF_r1_bottleneck parent 1:1 handle 10: sfq
+sudo tc qdisc add dev $IF parent 1:1 handle 10: sfq
 run "stochastic fair queue"
 
 
 # set up a hhf qdisc
 reset_qdisc
-sudo tc qdisc add dev $IF_r1_bottleneck parent 1:1 handle 10: hhf
+sudo tc qdisc add dev $IF parent 1:1 handle 10: hhf
 run "heavy-hitter filter"
 
 
