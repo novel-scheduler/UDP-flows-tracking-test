@@ -57,7 +57,7 @@ setup
 
 
 # set up a netem qdisc with delay to ensure setup works properly
-sudo tc qdisc add dev $IF parent 1:1 handle 10: add netem reorder 25% 50% gap 5
+sudo tc qdisc add dev $IF parent 1:1 handle 10: netem delay 5ms reorder 25% 50% gap 5
 run "200ms delay test"
 
 
