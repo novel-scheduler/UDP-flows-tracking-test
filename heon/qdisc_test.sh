@@ -55,17 +55,10 @@ run "default: pfifo_fast"
 
 setup
 
-
-# set up a netem qdisc with delay to ensure setup works properly
+# apply delay & reordering to the packets 
+# this is where a flow output conflict should occur 
 sudo tc qdisc add dev $IF parent 1:1 handle 10: netem delay 5ms reorder 25% 50% gap 5
 run "reordering test"
-
-
-# set up a pfifo qdisc with 30p buffer
-reset_qdisc
-sudo tc qdisc add dev $IF parent 1:1 handle 10: pfifo limit 30
-run "pfifo w/ 30p buffer"
-
 
 # set up a fq qdisc
 reset_qdisc
@@ -73,16 +66,24 @@ sudo tc qdisc add dev $IF parent 1:1 handle 10: fq
 run "fair queue"
 
 
-# set up an sfq qdisc
-reset_qdisc
-sudo tc qdisc add dev $IF parent 1:1 handle 10: sfq
-run "stochastic fair queue"
+#################### UNUSED TESTS ####################
+
+# # set up a pfifo qdisc with 30p buffer
+# reset_qdisc
+# sudo tc qdisc add dev $IF parent 1:1 handle 10: pfifo limit 30
+# run "pfifo w/ 30p buffer"
 
 
-# set up a hhf qdisc
-reset_qdisc
-sudo tc qdisc add dev $IF parent 1:1 handle 10: hhf
-run "heavy-hitter filter"
+# # set up an sfq qdisc
+# reset_qdisc
+# sudo tc qdisc add dev $IF parent 1:1 handle 10: sfq
+# run "stochastic fair queue"
+
+
+# # set up a hhf qdisc
+# reset_qdisc
+# sudo tc qdisc add dev $IF parent 1:1 handle 10: hhf
+# run "heavy-hitter filter"
 
 
 
