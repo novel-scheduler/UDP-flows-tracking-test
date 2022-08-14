@@ -1,7 +1,7 @@
 import socket
 import random
 import functools
-from Flow import Flow
+from FlowRecord import FlowRecord
 
 # Define constants
 host = '127.0.0.1'
