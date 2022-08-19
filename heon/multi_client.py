@@ -72,7 +72,7 @@ if __name__ == "__main__":
     parser.add_argument("--host", type=str, required=False,
                         default='127.0.0.1', help="Host to connect to")
     parser.add_argument("-p", "--port", type=int, required=False,
-                        default=12345, help="Port to connect to")
+                        default=5000, help="Port to connect to")
     parser.add_argument("-n", "--num-conn", type=int, required=False,
                         default=3, help="Number of client connections to initiate")
     parser.add_argument("-f", "--input-flow-seq-file", type=str,

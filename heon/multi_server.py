@@ -66,7 +66,7 @@ if __name__ == "__main__":
     parser.add_argument("--host", type=str, required=False,
                         default='127.0.0.1', help="Host on which to run server")
     parser.add_argument("-p", "--port", type=int, required=False,
-                        default=12345, help="Port on which to run server")
+                        default=5000, help="Port on which to run server")
     args = parser.parse_args()
     
     # Start server
