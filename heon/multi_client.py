@@ -5,7 +5,7 @@ import argparse
 # Define constants
 MAX_CHUNK_SIZE = 100
 
-# Initialize 3 client UDP sockets
+# Initialize client UDP sockets
 cs_list = []
 
 # Empty previous flow_sequence in flie

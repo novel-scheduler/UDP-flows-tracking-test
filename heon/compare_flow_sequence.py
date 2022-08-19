@@ -26,7 +26,7 @@ def compare_flow_sequence(args):
     flow_sequence_server = [line.strip() for line in flow_sequence_lines_server]
     f.close()
     
-    # Get deesired flow sequence output
+    # Get desired flow sequence output
     f = open(args.desired_seq_file, "r")
     flow_sequence_lines_desired = f.readlines()
     flow_sequence_desired = [line.strip() for line in flow_sequence_lines_desired]

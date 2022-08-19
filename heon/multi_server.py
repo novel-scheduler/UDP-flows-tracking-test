@@ -41,13 +41,8 @@ def client_handler(ss):
         f.write(str(flow_record.getFlowTS()) + "\n")
         f.close()
 
-        if msg == "4":
-            ss.close()
-            break
-
         reply = f'Server: RESPONSE!'
         ss.sendto(str.encode(reply), sender)
-    ss.close()
 
 
 # Start UDP server
@@ -62,8 +57,7 @@ def start_UDP_server(host, port):
 
     print(f'UDP SERVER Running on {port}...')
 
-    while True:
-        client_handler(ss)
+    client_handler(ss)
 
 
 if __name__ == "__main__":
