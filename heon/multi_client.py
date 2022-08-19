@@ -42,9 +42,6 @@ def run_single_client_connection(cs, flow_num, server_addr):
     f.write(str(flow_record.getFlowTS()) + "\n")
     f.close()
 
-    res = cs.recv(MAX_CHUNK_SIZE)
-    print(res.decode('utf-8'))
-
 
 # Run a set of client connections 
 def run_client_connections(args):
