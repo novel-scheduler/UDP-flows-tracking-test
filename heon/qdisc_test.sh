@@ -57,7 +57,7 @@ setup
 
 # apply delay & reordering to the packets 
 # this is where a flow output conflict should occur 
-sudo tc qdisc add dev $IF parent 1:1 handle 10: netem delay 5ms reorder 100% 50% gap 3
+sudo tc qdisc add dev $IF parent 1:1 handle 10: netem delay 500ms reorder 100% 50% gap 3
 run "reordering test"
 
 # set up a fq qdisc
