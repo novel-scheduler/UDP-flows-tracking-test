@@ -66,11 +66,11 @@ printf "(User Input) Port: $PORT\n"
 printf "(User Input) Qdisc: $QDISC\n"
 printf "\n\n"
 
-# Start of test
-run "Full Test Automation"
-
 # Clean qdisc
 clean
+
+# Start of test
+run "Full Test Automation"
 
 if [ "$QDISC" = "FIFO" ]; then
 	run "Chosen QDISC: FIFO"
