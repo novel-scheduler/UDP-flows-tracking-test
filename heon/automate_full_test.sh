@@ -17,6 +17,8 @@ python3 generate_flow_seq.py -n $NUM_CONN
 
 run "Random & Desired Flows Generated"
 
+# Server does not know when the client has stopped sending packets, so the user
+# may have to manually terminate the server program with ctrl + c 
 (trap 'kill 0' SIGINT; python3 multi_server.py & python3 multi_client.py -n $NUM_CONN)
 
 run "Client & Server Have Interacted"

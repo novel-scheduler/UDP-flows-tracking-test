@@ -1,16 +1,13 @@
 import argparse
+import sys
 
 
 def compare_lists(list1, list2):
-    lists_are_equal = True
-    i = 0
-    while i < len(list1):
-        if list1[i] != list2[i]:
-            lists_are_equal = False
-            break
-        else:
-            i = i + 1
-    return lists_are_equal
+    if len(list1) != len(list2):
+        print("*** List lengths are different, terminating program! ***")
+        sys.exit()
+       
+    return list1 == list2
 
 
 def compare_flow_sequence(args):
