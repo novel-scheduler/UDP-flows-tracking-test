@@ -8,13 +8,16 @@ run () {
 	echo ""
 }
 
+NUM_CONN=$1
+printf "(User Input) Number of Connections: $NUM_CONN\n\n"
+
 run "Full Test Automation"
 
-python3 generate_flow_seq.py
+python3 generate_flow_seq.py -n $NUM_CONN
 
 run "Random & Desired Flows Generated"
 
-(trap 'kill 0' SIGINT; python3 multi_server.py & python3 multi_client.py)
+(trap 'kill 0' SIGINT; python3 multi_server.py & python3 multi_client.py -n $NUM_CONN)
 
 run "Client & Server Have Interacted"
 
@@ -22,6 +25,8 @@ python3 compare_flow_sequence.py
 
 run "Flow Order Comparison Finished"
 
+printf "\n---------- (Result): ----------\n"
 cat compare_result.txt
+printf "\n\n"
 
 
