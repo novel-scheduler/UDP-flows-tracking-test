@@ -1,5 +1,7 @@
 # Quickstart script for running a full test
 
+# Default network interface is local host
+IF="lo"
 
 #################### FUNCTIONS ####################
 
@@ -48,9 +50,6 @@ run () {
 }
 
 #################### RUN TEST ####################
-
-# Default network interface is local host
-IF="lo"
 
 # User-defined variables
 NUM_CONN=$1
