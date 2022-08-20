@@ -9,7 +9,7 @@ Example 1:
 ```
 bash automate_full_test.sh 7 5000 FIFO
 ```
-Exapmple 2:
+Example 2:
 ```
 bash automate_full_test.sh 7 5000 REORDER
 ```
