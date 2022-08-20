@@ -1,5 +1,11 @@
 # Quickstart script for running a full test
 
+# Validate number of arguments
+if [[ $# -ne 3 ]] ; then
+    echo "Need all three arguments"
+    exit -1
+fi
+
 # Default network interface is local host
 IF="lo"
 
