@@ -102,7 +102,4 @@ printf "\n---------- (Result): ----------\n"
 cat compare_result.txt
 printf "\n\n"
 
-# Clean qdisc
-clean
-
 
