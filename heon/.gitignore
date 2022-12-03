@@ -1,6 +1,6 @@
-**/flow_sequence_client_side.txt
-**/flow_sequence_server_side.txt
-**/z_NOTES.txt
+**/*.txt
 **/playground.py
 **/*.pyc
 **/*.DS_Store
+**/README.md
+**/test.sh
